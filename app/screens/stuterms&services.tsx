@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Platform, View, Text, Pressable, StatusBar } from 'react-native';
 
-// import { HelloWave } from '@/components/HelloWave';
-// import ParallaxScrollView from '@/components/ParallaxScrollView';
-// import { ThemedText } from '@/components/ThemedText';
-// import { ThemedView } from '@/components/ThemedView';
+import { HelloWave } from '@/components/HelloWave';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ThemedText } from '@/components/ThemedText';
+import { ThemedView } from '@/components/ThemedView';
 import { router, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 
@@ -17,22 +17,15 @@ export default function HomeScreen() {
     })
   }, [navigation]);
 
-  const handleClick2 = () => {
+  const handleClick = () => {
     // alert("registering")
-     router.navigate('/screens/OrgorStuScreen') 
+     router.navigate('/screens/StuSignUpScreen') 
  }
- const handleClick = () => {
-    // alert("registering")
-   router.navigate('/screens/LogInScreen') 
-  }
   return (
     <View style={styles.container}>
-      <Text style={styles.titleText}>Welcome!</Text>
+      <Text style={styles.terms}>Terms&services!</Text>
       <Pressable onPress={handleClick} style={styles.button}>
-    <Text style={styles.text}>Log In</Text>
-    </Pressable>
-    <Pressable onPress={handleClick2} style={styles.button2}>
-    <Text style={styles.text}>Sign Up</Text>
+    <Text style={styles.text}>back</Text>
     </Pressable>
     <StatusBar style="auto" />
     </View>
@@ -64,10 +57,10 @@ const styles = StyleSheet.create({
   
   
   },
-  titleText: {
-    fontSize: 60,
+  terms: {
+    fontSize:35,
     fontWeight: 'bold',
-    height: 400
+    top:-300,
   },
   text: {
     fontSize: 16,
