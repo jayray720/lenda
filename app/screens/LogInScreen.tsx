@@ -13,17 +13,17 @@ export default function SignUpScreen() {
 
     useEffect(( ) => {
       navigation.setOptions({
-        headerShown: true,
+        headerShown: false,
       })
     }, [navigation]);
  const handleClick = () => {
     // alert("registering")
-     router.navigate('/screens/MainScreen') 
+     router.navigate('/screens/orghome') 
  }
-//  const handleClick2 = () => {
-//     // alert("registering")
-//    router.navigate('/(tabs)/index.tsx') 
-//  }
+ const handleClick2 = () => {
+    // alert("registering")
+   router.navigate('/screens/stuhome') 
+ }
 
   return (
     <View style={styles.container}>
@@ -32,9 +32,9 @@ export default function SignUpScreen() {
     <Pressable onPress={handleClick} style={styles.button}>
     <Text style={styles.text}>Log In</Text>
     </Pressable>
-    {/* <Pressable onPress={handleClick2} style={styles.button2}>
-    <Text style={styles.text}>back</Text>
-    </Pressable> */}
+    <Pressable onPress={handleClick2} style={styles.button2}>
+    <Text style={styles.text}>admin login</Text>
+    </Pressable>
     <StatusBar style="auto" />
   </View>
   );

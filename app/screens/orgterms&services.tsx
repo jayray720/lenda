@@ -84,7 +84,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal: 32,
-    borderRadius: 4,
     elevation: 1,
     backgroundColor:"#007AFF",
     height: 48,

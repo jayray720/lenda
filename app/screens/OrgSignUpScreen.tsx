@@ -27,14 +27,15 @@ export default function SignUpScreen() {
 
   return (
     <View style={styles.container}>
-    <Text style={styles.Org}>Enter your email address</Text>
+    <Text style={styles.Org}>Enter your email address and date of birth</Text>
     <Text style={styles.Email}>djdj@mgmail.com</Text>
+    <Text style={styles.BDay}>01/13/2000</Text>
     <Pressable onPress={handleClick} style={styles.button}>
-    <Text style={styles.text}>Log In</Text>
+    <Text style={styles.text}>Next</Text>
     </Pressable>
-    <Pressable onPress={handleClick2} style={styles.button2}>
-    <Text style={styles.text}>term & servacices</Text>
-    </Pressable>
+    {/* <Pressable onPress={handleClick2} style={styles.button2}>
+    <Text style={styles.text2}>term & servacices</Text>
+    </Pressable> */}
     <StatusBar style="auto" />
   </View>
   );
@@ -45,7 +46,7 @@ export default function SignUpScreen() {
       alignItems: 'center',
     },
     Org: {
-        fontSize: 30,
+        fontSize: 18,
         fontWeight: 'bold',
         top: -230
     },
@@ -58,7 +59,7 @@ export default function SignUpScreen() {
     
     },
     Email: {
-      fontSize: 30,
+      fontSize: 18,
       fontWeight: 'bold',
       top: -150
     },
@@ -79,15 +80,24 @@ export default function SignUpScreen() {
       backgroundColor:"#007AFF",
       top:190,
     },
-    button2: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 5,
-        paddingHorizontal: 5,
-        borderRadius: 20,
-        backgroundColor:"#D6D6D6",
-        borderWidth: 1,
-        top:-130,
-        left:-100,
-    },
+    // button2: {
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     paddingVertical: 5,
+    //     paddingHorizontal: 5,
+    //     borderRadius: 20,
+    //     backgroundColor:"#FFFFFF",
+    //     top:50,
+    //     left:-100,
+    // },
+    text2: {
+        fontSize: 16,
+        lineHeight: 21,
+        color: '#000000',
+      },
+      BDay: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        top: -150
+      },
   });

@@ -18,8 +18,8 @@ export default function SignUpScreen() {
       })
     }, [navigation]);
  const handleClick = () => {
-    alert("registering")
-    //  router.navigate('/screens/MainScreen') 
+    // alert("registering")
+     router.navigate('/screens/LogInScreen') 
  }
  const handleClick2 = () => {
     // alert("registering")
@@ -33,9 +33,9 @@ export default function SignUpScreen() {
     <Pressable onPress={handleClick} style={styles.button}>
     <Text style={styles.text}>Agree & continue</Text>
     </Pressable>
-    <Pressable onPress={handleClick2} style={styles.button2}>
-    <Text style={styles.text}>back</Text>
-    </Pressable>
+    {/* <Pressable onPress={handleClick2} style={styles.button2}>
+    <Text style={styles.text2}>terms and services</Text>
+    </Pressable> */}
     <StatusBar style="auto" />
   </View>
   );
@@ -76,17 +76,22 @@ export default function SignUpScreen() {
       paddingVertical: 12,
       paddingHorizontal: 32,
       borderRadius: 4,
-      elevation: 3,
+      top:200,
       backgroundColor:"#6FEB6F",
     },
-    button2: {
-        alignItems: 'center',
-      paddingVertical: 6,
-      paddingHorizontal: 17,
-      borderRadius: 2,
-      backgroundColor:"#000000",
-      marginLeft: "auto",
-      left: -275,
-      top: -100,
-    }
+    // button2: {
+    //     alignItems: 'center',
+    //     justifyContent: 'center',
+    //     paddingVertical: 5,
+    //     paddingHorizontal: 5,
+    //     borderRadius: 20,
+    //     backgroundColor:"#FFFFFF",
+    //     top:-130,
+    //     left:-100,
+    // },
+    text2: {
+        fontSize: 16,
+        lineHeight: 21,
+        color: '#000000',
+      },
   });
