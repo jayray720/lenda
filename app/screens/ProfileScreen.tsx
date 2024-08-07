@@ -1,4 +1,5 @@
 import {
+  Modal,
   Image,
   StyleSheet,
   Platform,
@@ -17,6 +18,7 @@ import { router, useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -177,11 +179,10 @@ const styles = StyleSheet.create({
     left:196,
     height: 39,
     width: 37,
-    backgroundColor: "319BC8",
   },
   Pic: {
     position: "absolute",
-    top: 186,
+    top: -183,
     left: 20,
     width: 100,
     height: 100,

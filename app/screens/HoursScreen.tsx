@@ -1,13 +1,18 @@
-import { Image, StyleSheet, View, Text, Pressable, StatusBar, TextInput, Modal } from 'react-native';
+import { Image, StyleSheet, View, Text, Pressable, StatusBar, TextInput, Modal, TouchableOpacity } from 'react-native';
 
 import { router, useNavigation } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { Circle } from 'react-native-maps';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
+  const[count, setcount]= useState(0);
+  const increment = () => setcount(count + 1);
+  const decrement = () => setcount(count - 1);
 
   useEffect(( ) => {
     navigation.setOptions({
@@ -35,7 +40,10 @@ export default function HomeScreen() {
     // alert("You are already on this page");
      router.navigate('/screens/orgpost')
   };
-  return (
+  const handleClick10 = () => {
+    setModalVisible(true);
+    //  router.navigate('/screens/orgpost')
+  };  return (
     <View style={styles.container}>
           <View style={styles.Header}>
     <Text style={styles.headerText}>Request Hours</Text>
@@ -56,6 +64,27 @@ export default function HomeScreen() {
             source={require("../../assets/images/gg_add (1).png")}
           /> 
       </View>
+      <Modal
+      animationType="slide"
+      transparent={true}
+        visible={modalVisible}>
+
+<View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hours</Text>
+
+<TouchableOpacity onPress={decrement}>
+<Text>-</Text>
+</TouchableOpacity>
+<Text>{count}</Text>
+<TouchableOpacity onPress={increment}>
+<Text>+</Text>
+</TouchableOpacity>
+          </View>
+        </View>
+          
+
+        </Modal>
       <View style={styles.intersection}>
       <Text style={styles.searchText}>Select Hosts from your past and current post you worked with.</Text>
       <Image
@@ -77,21 +106,31 @@ export default function HomeScreen() {
             source={require("../../assets/images/image 24.png")}
           /> 
           <Text style={styles.Text4}>Osman Guevara</Text>
+          <AntDesign
+           name="checkcircleo"
+            size={24}
+             color="black"
+              style={styles.Circle} />
           <Image
             style={styles.user3}
             source={require("../../assets/images/IMG_1866.png")}
           /> 
           <Text style={styles.Text3}>Patrick Jovel</Text>
+          <AntDesign name="checkcircleo" size={24} color="black" style={styles.Circle2} />
           <Image
             style={styles.user2}
             source={require("../../assets/images/IMG_1867.png")}
           /> 
           <Text style={styles.Text2}>Christopher Daniel</Text>
+          <AntDesign name="checkcircleo" size={24} color="black" style={styles.Circle3} />
           <Image
             style={styles.user}
             source={require("../../assets/images/IMG_1868 1.png")} 
           />
           <Text style={styles.Text}>Bryan Manueles</Text>
+          <Pressable onPress={handleClick10}>
+          <AntDesign name="checkcircleo" size={24} color="black" style={styles.Circle4} />
+          </Pressable>
           </View>
           <View style={styles.bottom}>
         <Pressable onPress={handleClick} style={styles.hrButton}>
@@ -395,6 +434,26 @@ const styles = StyleSheet.create({
     left:80,
     fontSize:20,
   },
+  Circle: {
+    position:'absolute',
+    left:315,
+    top:60,
+  },
+  Circle2: {
+    position:'absolute',
+    left:315,
+    top:165,
+  },
+  Circle3: {
+    position:'absolute',
+    bottom:35,
+    left:315,
+  },
+  Circle4: {
+    position:'absolute',
+    bottom:155,
+    left:315,
+  },
   users:{
     position:'absolute',
     left:20,
@@ -428,5 +487,27 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: "#FFFFFF",
     top: 5
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    position:'absolute',
+    margin: 20,
+    backgroundColor: '#F3F3F7',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    width:393,
+    height:460,
+    bottom:100,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
