@@ -1,16 +1,11 @@
 import {
   StyleSheet,
-  Platform,
   View,
   Text,
   Pressable,
   StatusBar,
 } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
 import { router, useNavigation } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
@@ -36,10 +31,6 @@ export default function SignUpScreen() {
     { latitude: 33.934298633718825, longitude: -118.33677941170436 },
     { latitude: 34.01342501018935, longitude: -118.30815762619261 },
     { latitude: 33.99289171283299, longitude: -118.31305472440025 },
-    // {latitude: , longitude: },
-    // {latitude: , longitude: },
-    // {latitude: , longitude: },
-    // {latitude: , longitude: },
   ];
   //   const mapRef = React.createRef();
 
@@ -70,10 +61,12 @@ export default function SignUpScreen() {
       setLocation(location);
 
       setInitialRegion({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: 0.005,
-        longitudeDelta: 0.005,
+        // latitude: location.coords.latitude,
+        // longitude: location.coords.longitude,
+        latitude: 34.000326,
+        longitude: -118.296743,
+        latitudeDelta: 0.025,
+        longitudeDelta: 0.025,
       });
 
       //   goToMyLocation(location);
@@ -107,7 +100,7 @@ export default function SignUpScreen() {
         <Text style={styles.distance}>2.0 Miles Away</Text>
       </View>
       <View style={styles.top}>
-        <Text style={styles.titleMap}>Map!</Text>
+        <Text style={styles.titleMap}>Map</Text>
         <View style={styles.eventContainer}>
         <Text style={styles.ActiveEvents}>3 Active Events</Text>
         </View>
@@ -151,7 +144,7 @@ export default function SignUpScreen() {
             // contentFit="cover"
             // transition={1000}
           />
-          <Text style={styles.text2}>map</Text>
+          <Text style={styles.text2}>Map</Text>
         </Pressable>
 
         <Pressable onPress={handleClick3} style={styles.searchButton}>
@@ -172,9 +165,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   titleMap: {
-    fontSize: 18,
-    top: 20,
-    left: -130,
+    fontSize: 40,
+    color:'#22799F',
+    top: 22,
+    left: -145,
   },
   container: {
     backgroundColor: "#4BB8E7",
@@ -204,8 +198,8 @@ const styles = StyleSheet.create({
 
   ActiveEvents: {
     fontSize: 18,
-    fontWeight: "bold",
-
+    fontWeight: 300,
+    color: '#1B6C8F'
   },
   text: {
     fontSize: 16,
@@ -214,8 +208,8 @@ const styles = StyleSheet.create({
   },
 
   profile: {
-    top: 10,
-    right: -150,
+    top: -10,
+    right: -160,
   },
   map: {
     width: "100%",
@@ -249,8 +243,9 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: '500',
     color: "#FFFFFF",
+    top: 5
   },
   bottom: {
     backgroundColor: "#4BB8E7",
@@ -274,26 +269,36 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 40,
   },
-  distance: {},
-  distanceBox: {
-    width: 135,
-    height: 64,
+  distance: {
+    fontSize: 18,
+    fontWeight: 300,
+    color: '#1B6C8F',
+    top: 1,
+    left: 10,
+    width: "75%",
+    textAlign: 'center',
+  },
+distanceBox: {
+    width: 110,
+    height: 55,
     backgroundColor: "#88DAFD",
     borderWidth: 4,
     borderRadius: 15,
     borderColor: "#58BBE6",
     textAlign: "center",
     position: "absolute",
-    left: -5,
-    top: 110,
+    left: -3,
+    top: 133,
     zIndex: 1,
   },
   eventContainer: {
     backgroundColor:"#88DAFD",
         borderRadius:10,
         position:'absolute',
-        left:-170,
-        top:50,
+        left:-150,
+        top:80,
         borderWidth:1,
+        paddingLeft: 10,
+        paddingRight: 10
   }
 });

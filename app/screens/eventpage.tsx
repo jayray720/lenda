@@ -1,9 +1,5 @@
 import { Image, StyleSheet,TextInput, Platform, View, Text, Pressable, StatusBar } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import { router, useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 import { FontAwesome } from "@expo/vector-icons";
@@ -50,28 +46,29 @@ export default function SignUpScreen() {
       </View>
       <View style={styles.search}>
       <TextInput style={styles.searchBar}>
-        search
+        Search
       </TextInput>
       <Image
             style={styles.Filter}
             source={require("../../assets/images/Filter.png")}
           /> 
       </View>
-    <Image
+     
+          <View style={styles.eventdescContainer}>
+          <Image
             style={styles.EventPic}
             source={require("../../assets/images/beach.png")}
           /> 
-          <View style={styles.eventdescContainer}>
-            <Text>
+            <Text style={styles.eventText}>
             Max Hours: 5
             </Text>
-            <Text>
-            Address: Venice Beach LA,CA
+            <Text style={styles.eventText}>
+            Address: Venice Beach LA, CA
             </Text>
-            <Text>
+            <Text style={styles.eventText}>
             Host/Client: Max
             </Text>
-            <Text>
+            <Text style={styles.eventText}>
             Preferred Arrival: 3:00- 6:00 PM
            </Text>
            </View>
@@ -91,7 +88,7 @@ export default function SignUpScreen() {
             // contentFit="cover"
             // transition={1000}
           />
-          <Text style={styles.text2}>map</Text>
+          <Text style={styles.text2}>Map</Text>
         </Pressable>
 
         <Pressable onPress={handleClick3} style={styles.searchButton}>
@@ -134,25 +131,21 @@ export default function SignUpScreen() {
       borderWidth:6,
       borderRadius:12,
       borderColor:'#319BC8',
-      width:417,
-      height:188,
+      width:450,
+      height:120,
       top:0,
       backgroundColor:'#4BB8E7'
     },
     headerText: {
-      position:'absolute',
-      top:60,
-      fontSize:50,
-      color:'#22799F'
+      top: 47,
+      right: -20,
+      fontSize:40,
+      color:'#22799F',
     },
     EventPic: {
-      width:300,
+      width:250,
       height:300,
-      position:'absolute',
-      borderWidth:6,
-      borderRadius:12,
-      borderColor:'#88DAFD',
-      top:290,
+      alignSelf: 'center',
     },
     eventdescContainer:{
       position:'absolute',
@@ -160,12 +153,11 @@ export default function SignUpScreen() {
       borderRadius:12,
       borderColor:'#88DAFD',
       width:300,
-      height:145,
-      bottom:170,
-      backgroundColor:'#88DAFD'
-  
+      height:420,
+      top:230,
+      backgroundColor:'#88DAFD',
+      justifyContent: 'center',
     },
-
   hrButton: {
     alignItems: "center",
     justifyContent: "center",
@@ -222,25 +214,38 @@ export default function SignUpScreen() {
     // backgroundColor: "black"
   },
   profile: {
-    top: 70,
-    right: -320,
+    top: -5,
+    right: -350,
   },
   searchBar: {
     color:'#FFFFFF ',
     left:-40,
+    fontSize:25
   },
   search: {
     borderWidth:1,
     paddingHorizontal:50,
     position: 'absolute',
-    top:190,
+    top:150,
     borderRadius:9999,
+    width:360,
+    height:35,
   },
   Filter:{
-    width:16,
-    height:16,
+    width:24,
+    height:24,
     position:'absolute',
-    right:5,
-    top:2,
+    right:10,
+    top:5,
+  },
+  eventText: {
+    top: 10,
+    left: 20
+  },
+  text2: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: "#FFFFFF",
+    top: 5
   },
   });

@@ -1,17 +1,13 @@
-import { Image, StyleSheet, Platform, View, Text, Pressable, StatusBar, Settings, TextInput } from 'react-native';
+import { Image, StyleSheet, View, Text, Pressable, StatusBar, TextInput, Modal } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import { router, useNavigation } from 'expo-router';
-import { useEffect } from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 
 export default function HomeScreen() {
-
   const navigation = useNavigation();
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(( ) => {
     navigation.setOptions({
@@ -42,9 +38,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
           <View style={styles.Header}>
-    <Text style={styles.headerText}>Request Hours
-
-    </Text>
+    <Text style={styles.headerText}>Request Hours</Text>
     <FontAwesome
           name="user-circle"
           size={50}
@@ -55,7 +49,7 @@ export default function HomeScreen() {
       </View>
       <View style={styles.search}>
       <TextInput style={styles.searchBar}>
-        search
+        Search
       </TextInput>
       <Image
             style={styles.Filter}
@@ -63,6 +57,7 @@ export default function HomeScreen() {
           /> 
       </View>
       <View style={styles.intersection}>
+      <Text style={styles.searchText}>Select Hosts from your past and current post you worked with.</Text>
       <Image
             style={styles.Lines1}
             source={require("../../assets/images/Line 4.png")}
@@ -114,7 +109,7 @@ export default function HomeScreen() {
             // contentFit="cover"
             // transition={1000}
           />
-          <Text style={styles.text2}>map</Text>
+          <Text style={styles.text2}>Map</Text>
         </Pressable>
 
         <Pressable onPress={handleClick3} style={styles.searchButton}>
@@ -148,8 +143,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  
-  
   },
   UserName: {
     fontSize: 30,
@@ -304,25 +297,24 @@ const styles = StyleSheet.create({
     borderWidth:6,
     borderRadius:12,
     borderColor:'#319BC8',
-    width:417,
+    width:450,
     height:120,
     top:0,
     backgroundColor:'#4BB8E7'
   },
   headerText: {
-    position:'absolute',
-    top:40,
+    // position:'absolute',
+    top: 47,
+    right: -20,
     fontSize:40,
     color:'#22799F',
-    top:30,
   },
   profile: {
-    top: 35,
-    right: -320,
+    top: -5,
+    right: -350,
   },
   toptext: {
     position:'absolute',
-
   },
   search: {
     borderWidth:1,
@@ -330,13 +322,20 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top:150,
     borderRadius:9999,
-    width:325,
+    width:360,
     height:35,
   },
   searchBar: {
     color:'#FFFFFF ',
     left:-40,
     fontSize:25
+  },
+  searchText: {
+    color: '#8A8A8A',
+    top: -240,
+    left: 30,
+    flex: 1,
+    width: 300
   },
   Filter:{
     width:24,
@@ -350,7 +349,6 @@ const styles = StyleSheet.create({
     width:65,
     height:65,
     top:150,
-    // top:500,
   },
   Text: {
     position:'absolute',
@@ -375,7 +373,7 @@ const styles = StyleSheet.create({
     position:'absolute',
     width:65,
     height:65,
-    bottom:10,
+    bottom:10, 
     // left:50,
   },
   Text3: {
@@ -393,7 +391,7 @@ const styles = StyleSheet.create({
   },
   Text4: {
     position:'absolute',
-    top:175,
+    top:165,
     left:80,
     fontSize:20,
   },
@@ -410,19 +408,25 @@ const styles = StyleSheet.create({
     position:'absolute',
     width:390,
     height:4,
-    top:10,
+    top:30,
     color:'#F1F1F1',
   },
   Lines2:{
     position:'absolute',
     width:390,
     height:4,
-    top:130,
+    top:140,
   },
   Lines3:{
     position:'absolute',
     width:390,
     height:4,
-    bottom:100,
+    bottom:120,
+  },
+  text2: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: "#FFFFFF",
+    top: 5
   },
 });

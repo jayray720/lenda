@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Platform,
   View,
   Text,
   Pressable,
