@@ -39,6 +39,11 @@ export default function OrgPost() {
     router.navigate("/screens/eventpage");
   };
 
+  const handleProfileClick = () => {
+    // alert("registering")
+    router.navigate("/screens/ProfileScreen");
+  };
+
   return (
     <View style={styles.container}>
       {/* <Image
@@ -55,6 +60,7 @@ export default function OrgPost() {
           size={50}
           color="black"
           style={styles.profile}
+          onPress={handleProfileClick}
         />
       </View>
 

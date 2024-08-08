@@ -2,23 +2,15 @@ import {
   Modal,
   Image,
   StyleSheet,
-  Platform,
   View,
   Text,
   Pressable,
   StatusBar,
-  Settings,
 } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
 import { router, useNavigation } from "expo-router";
 import { useEffect } from "react";
-import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -57,23 +49,23 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <View style={styles.Header}>
         <Text style={styles.headerText}>My Profile</Text>
-        <Pressable onPress={handleClick2}>
-          <Image
-            style={styles.profile}
-            source={require("../../assets/images/image 8.png")}
-          />
-        </Pressable>
+        <FontAwesome
+          name="user-circle"
+          size={50}
+          color="black"
+          style={styles.profile}
+        />
       </View>
         <Image
           style={styles.Pic}
           source={require("../../assets/images/image 8.png")}
         />
-        <Pressable onPress={handleClick7}>
+        {/* <Pressable onPress={handleClick7}>
           <Image
             style={styles.Settings}
             source={require("../../assets/images/Vector (6).png")}
           />
-        </Pressable>
+        </Pressable> */}
         <Text style={styles.SchoolName}>Torrance High</Text>
         <Text style={styles.UserName}>Christian Jimenez</Text>
       <View style={styles.AboutView}>
@@ -81,12 +73,12 @@ export default function HomeScreen() {
       </View>
       <View style={styles.AboutContainer}>
         <Text style={styles.AboutDesc}>
-          I like video games, helping out my community and cats.{" "}
+          I like video games, helping out my community and cats!{" "}
         </Text>
-        <Text style={styles.HoursCompleated}>Total hours completed:</Text>
+        <Text style={styles.HoursCompleated}>Total Hours Completed:</Text>
         <Text style={styles.TotalHours}>75 hours</Text>
-        <Text style={styles.MostRecentEvent}>Most recent event(s):</Text>
-        <Text style={styles.RecentEvent}>Park clean-up</Text>
+        <Text style={styles.MostRecentEvent}>Most Recent Event(s):</Text>
+        <Text style={styles.RecentEvent}>Park Clean-Up</Text>
         <View style={styles.moreContext}>
           <Text style={styles.more}>More</Text>
         </View>
@@ -108,7 +100,7 @@ export default function HomeScreen() {
             // contentFit="cover"
             // transition={1000}
           />
-          <Text style={styles.text2}>map</Text>
+          <Text style={styles.text2}>Map</Text>
         </Pressable>
 
         <Pressable onPress={handleClick3} style={styles.searchButton}>
@@ -182,17 +174,19 @@ const styles = StyleSheet.create({
   },
   Pic: {
     position: "absolute",
-    top: -183,
+    // bottom: 1,
     left: 20,
-    width: 100,
-    height: 100,
+    width: 59,
+    height: 59,
   },
   AboutDesc: {
     alignItems: "center",
     justifyContent: "center",
     position: "absolute",
     top: 25,
-    left: 20,
+    left: 15,
+    color: '#287090',
+    fontSize: 20
   },
   AboutView: {
     position: "absolute",
@@ -214,8 +208,9 @@ const styles = StyleSheet.create({
   About: {
     // position: "absolute",
 
-
-    fontSize: 30,
+    top: 5,
+    fontWeight: '600',
+    fontSize: 29,
     color: "#FFFFFF",
     alignItems: "center",
     justifyContent: "center",
@@ -223,14 +218,16 @@ const styles = StyleSheet.create({
   HoursCompleated: {
     position: "absolute",
     fontSize: 20,
-    top: 85,
-    left: 20,
+    top: 95,
+    left: 15,
+    fontWeight: '600'
   },
   TotalHours: {
     position: "absolute",
     fontSize: 20,
-    top: 125,
-    left: 75,
+    top: 130,
+    left: 15,
+    color: '#287090'
   },
   TodaysHours: {
     top: -110,
@@ -247,14 +244,16 @@ const styles = StyleSheet.create({
   MostRecentEvent: {
     position: "absolute",
     fontSize: 20,
-    top: 185,
-    left: 20,
+    top: 180,
+    left: 15,
+    fontWeight: '600'
   },
   RecentEvent: {
     position: "absolute",
     fontSize: 20,
-    left: 75,
-    top: 220,
+    top: 215,
+    left: 15,
+    color: '#287090'
   },
   AboutContainer: {
     position: "absolute",
@@ -323,26 +322,23 @@ const styles = StyleSheet.create({
   },
   Header: {
     position: "absolute",
-    borderBottomWidth: 10,
+    borderWidth: 6,
+    borderRadius: 12,
     borderColor: "#319BC8",
-    width: 417,
+    width: 450,
     height: 120,
     top: 0,
     backgroundColor: "#4BB8E7",
   },
   headerText: {
-    position: "absolute",
-    top: 40,
-    fontSize: 50,
+    top: 47,
+    right: -20,
+    fontSize: 40,
     color: "#22799F",
-    top: 20,
-    fontFamily: "NATS",
   },
   profile: {
-    top: 30,
-    right: -320,
-    height: 59,
-    width: 59,
+    top: -5,
+    right: -350,
   },
   wave: {
     position: "absolute",
@@ -350,7 +346,7 @@ const styles = StyleSheet.create({
     height: 554,
     zIndex: -1,
     bottom: 30,
-    left: -75,
+    left: -7,
     // transform:rotate(90deg);
   },
   more: {
@@ -366,5 +362,12 @@ const styles = StyleSheet.create({
     top: 260,
     position: "absolute",
     borderColor: "#33A94D",
+    fontWeight: '400'
+  },
+  text2: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#FFFFFF",
+    top: 5,
   },
 });
