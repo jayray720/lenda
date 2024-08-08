@@ -9,7 +9,7 @@ import {
 import { router, useNavigation } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { FontAwesome } from "@expo/vector-icons";
-import MapView, { Marker } from "react-native-maps";
+import MapView from "react-native-maps";
 import { Image } from "expo-image";
 import * as Location from "expo-location";
 import CustomMarker from "./CustomMarker";

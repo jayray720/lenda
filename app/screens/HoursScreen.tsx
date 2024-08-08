@@ -59,6 +59,9 @@ export default function HomeScreen() {
     setModalVisible(true);
     //  router.navigate('/screens/orgpost')
   };
+  const handleRequestClick = () => {
+    router.navigate("/screens/stuhome");
+  };
   return (
     <View style={styles.container}>
       <View style={styles.Header}>
@@ -96,7 +99,7 @@ export default function HomeScreen() {
               style={styles.notes}
               placeholder="Add Note..."
             ></TextInput>
-            <Pressable style={styles.buttonclose}>
+            <Pressable onPress={handleRequestClick} style={styles.buttonclose}>
               <Text style={styles.request}>Request</Text>
             </Pressable>
           </View>
@@ -538,10 +541,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 120,
-    backgroundColor: "#808080",
+    backgroundColor: 'rgba(52, 52, 52, 0.5)',
     height: "100%",
     width: "100%",
-    marginBottom: 90,
+    marginBottom: 120,
   },
   modalView: {
     position: "absolute",
@@ -553,7 +556,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     width: 425,
     height: 460,
-    bottom: 100,
+    top: 213,
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
   },
