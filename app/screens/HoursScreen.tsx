@@ -36,7 +36,7 @@ export default function HomeScreen() {
   }, [navigation]);
 
   const handleClick = () => {
-    alert("you are already on this page");
+    alert("You are already on this page!");
     // router.navigate("/screens/HoursScreen");
   };
   const handleClick2 = () => {

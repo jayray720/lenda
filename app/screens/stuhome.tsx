@@ -22,15 +22,15 @@ export default function SignUpScreen() {
   const [location, setLocation] = useState(null);
   const [initialRegion, setInitialRegion] = useState(null);
   const locationData = [
-    { latitude: 34.000326, longitude: -118.296743 },
-    { latitude: 33.96694106945521, longitude: -118.33989293426717 },
-    { latitude: 33.884437307545255, longitude: -118.33919168318681 },
-    { latitude: 33.88011069419912, longitude: -118.41025804717893 },
-    { latitude: 33.88319002665142, longitude: -118.37156655233294 },
-    { latitude: 33.916868006078886, longitude: -118.3430272896389 },
-    { latitude: 33.934298633718825, longitude: -118.33677941170436 },
-    { latitude: 34.01342501018935, longitude: -118.30815762619261 },
-    { latitude: 33.99289171283299, longitude: -118.31305472440025 },
+    { latitude: 34.000326, longitude: -118.296743, title: "Park Clean-Up", description: "4.95" },
+    // { latitude: 33.96694106945521, longitude: -118.33989293426717, title: "Animal Shelter" },
+    // { latitude: 33.884437307545255, longitude: -118.33919168318681, title: "Homeless Shelter" },
+    // { latitude: 33.88011069419912, longitude: -118.41025804717893, title },
+    // { latitude: 33.88319002665142, longitude: -118.37156655233294 },
+    // { latitude: 33.916868006078886, longitude: -118.3430272896389 },
+    // { latitude: 33.934298633718825, longitude: -118.33677941170436 },
+    { latitude: 34.01342501018935, longitude: -118.30815762619261, title: "Animal Shelter", description: "4.92" },
+    { latitude: 33.99289171283299, longitude: -118.31305472440025, title: "Book Donation", description: "4.93" },
   ];
   //   const mapRef = React.createRef();
 
@@ -85,7 +85,7 @@ export default function SignUpScreen() {
     router.navigate("/screens/eventpage");
   };
   const handleClick5 = () => {
-    alert("You are already on this page");
+    alert("You are already on this page!");
     //  router.navigate('/screens/orgpost')
   };
   const handleClick6 = () => {
@@ -121,8 +121,8 @@ export default function SignUpScreen() {
               latitude: data.latitude,
               longitude: data.longitude,
             }}
-            title={`Park Clean-Up`}
-            description={`4.95`}
+            title={data.title}
+            description={data.description}
           />
         ))} 
         </Pressable>

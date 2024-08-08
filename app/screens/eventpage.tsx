@@ -22,7 +22,7 @@ export default function SignUpScreen() {
       router.navigate("/screens/ProfileScreen");
     };
     const handleClick3 = () => {
-      alert("You are already on this page");
+      alert("You are already on this page!");
       // router.navigate("/screens/eventpage");
     };
     const handleClick5 = () => {
@@ -63,7 +63,7 @@ export default function SignUpScreen() {
             Max Hours: 5
             </Text>
             <Text style={styles.eventText}>
-            Address: Venice Beach LA, CA
+            Address: 1800 Ocean Walk, Venice, CA
             </Text>
             <Text style={styles.eventText}>
             Host/Client: Max

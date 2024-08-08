@@ -1,19 +1,15 @@
 import {
   Image,
   StyleSheet,
-  Platform,
   View,
   Text,
   Pressable,
   StatusBar,
 } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
 import { router, useNavigation } from "expo-router";
 import { useEffect } from "react";
+import { FontAwesome } from "@expo/vector-icons";
 
 export default function OrgPost() {
   const navigation = useNavigation();
@@ -24,10 +20,25 @@ export default function OrgPost() {
     });
   }, [navigation]);
 
-  const handleClick = () => {
+  const handleExitClick = () => {
     // alert("registering");
      router.navigate('/screens/stuhome')
   };
+
+  const handleClick = () => {
+    router.navigate("/screens/HoursScreen");
+  };
+
+  const handleClick5 = () => {
+    // alert("You are already on this page");
+    router.navigate("/screens/stuhome");
+  };
+
+  const handleClick3 = () => {
+    // alert("registering")
+    router.navigate("/screens/eventpage");
+  };
+
   return (
     <View style={styles.container}>
       {/* <Image
@@ -37,27 +48,35 @@ export default function OrgPost() {
       <Pressable onPress={handleClick} style={styles.button}>
         <Text style={styles.text}>back</Text>
       </Pressable> */}
-      <View style={styles.eventContainer}>
-      <Text style={styles.eventName}>Beach Clean-up</Text>
-    </View>
-      <Image
+      <View style={styles.header}>
+        <Text style={styles.eventName}>Park Clean-Up</Text>
+        <FontAwesome
+          name="user-circle"
+          size={50}
+          color="black"
+          style={styles.profile}
+        />
+      </View>
+
+        <View style={styles.eventdescContainer}>
+          <Image
             style={styles.EventPic}
-            source={require("../../assets/images/beach.png")}
+            // source={require("../../assets/images/beach.png")}
+            source={require("../../assets/images/image 21 (1).png")}
           /> 
-          <View style={styles.eventdescContainer}>
-            <Text>
-            Max Hours: 5
+            <Text style={styles.eventText}>
+            Max Hours: 3
             </Text>
-            <Text>
-            Address: Venice Beach LA,CA
+            <Text style={styles.eventText}>
+            Address: 1248 W. St, Los Angeles, CA
             </Text>
-            <Text>
+            <Text style={styles.eventText}>
             Host/Client: Max
             </Text>
-            <Text>
-            Preferred Arrival: 3:00- 6:00 PM
+            <Text style={styles.eventText}>
+            Preferred Arrival: 10:00 - 11:00 AM
            </Text>
-           <Image
+           {/* <Image
             style={styles.Ratings}
             source={require("../../assets/images/Vector (2).png")}
           /> 
@@ -79,24 +98,62 @@ export default function OrgPost() {
           /> 
           <Text style={styles.RatingsName}>
             4.5
-          </Text>
+          </Text> */}
           </View>
-          <Pressable onPress={handleClick} style={styles.Back}>
+          <Pressable onPress={handleExitClick} style={styles.Back}>
           <Image
                 style={styles.Back}
                 source={require("../../assets/images/Vector (4).png")}
               />
-               </Pressable>
-               <StatusBar style="auto" />
+           </Pressable>
+       <View style={styles.bottom}>
+        <Pressable onPress={handleClick} style={styles.hrButton}>
+          <Image
+            style={styles.hrIcon}
+            source={require("../../assets/images/request.png")}
+          />
+          <Text style={styles.text2}>Hours</Text>
+        </Pressable>
+
+        <Pressable onPress={handleClick5} style={styles.mapButton}>
+          <Image
+            style={styles.mapIcon}
+            source={require("../../assets/images/tabler_map-pin-2 (2).png")}
+            // contentFit="cover"
+            // transition={1000}
+          />
+          <Text style={styles.text2}>Map</Text>
+        </Pressable>
+
+        <Pressable onPress={handleClick3} style={styles.searchButton}>
+         <View style={{ height: 39, width: 39 }}>
+            <Image
+              style={styles.searchIcon}
+              source={require("../../assets/images/gg_add (1).png")}
+            />
+          </View>
+          <Text style={styles.text2}>Find</Text>
+        </Pressable>
+      </View>
+      <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
+  header: {
+    position: "absolute",
+    borderWidth: 6,
+    borderRadius: 12,
+    borderColor: "#319BC8",
+    width: 450,
+    height: 120,
+    top: 0,
+    backgroundColor: "#4BB8E7",
+  },
+  profile: {
+    top: -5,
+    right: -350,
   },
   container: {
     flex: 1,
@@ -112,27 +169,15 @@ const styles = StyleSheet.create({
     color: "white",
   },
   eventName: {
-    fontSize:50,
-    bottom: 0,
+    top: 47,
+    right: -20,
+    fontSize: 40,
+    color: "#22799F",
   },
   EventPic: {
-    width:300,
+    width:250,
     height:300,
-    position:'absolute',
-    borderWidth:6,
-    borderRadius:12,
-    borderColor:'#88DAFD',
-    top:180,
-  },
-  eventContainer: {
-    position:'absolute',
-    borderWidth:6,
-    borderRadius:12,
-    borderColor:'#88DAFD',
-    width:415,
-    height:-305,
-    top:20,
-    backgroundColor:'#88DAFD'
+    alignSelf: 'center',
   },
   eventdescContainer:{
     position:'absolute',
@@ -140,9 +185,10 @@ const styles = StyleSheet.create({
     borderRadius:12,
     borderColor:'#88DAFD',
     width:300,
-    height:145,
-    bottom:327,
-    backgroundColor:'#88DAFD'
+    height:420,
+    top:158,
+    backgroundColor:'#88DAFD',
+    justifyContent: 'center',
 
   },
   Ratings: {
@@ -166,9 +212,6 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom: 10,
     left:80,
-
-
-
   },
   Ratings3: {
     width: 33,
@@ -197,7 +240,67 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height:26,
     width:26,
-    top: 50,
-    left:5,
-  }
+    top: 80,
+    left:10,
+  },
+
+  bottom: {
+    backgroundColor: "#4BB8E7",
+    position: "absolute",
+    bottom: 0,
+    borderWidth: 4,
+    borderColor: "#319BC8",
+    width: "100%",
+    height: 120,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
+    zIndex: 5,
+  },
+  mapIcon: {
+    height: 38,
+    width: 38,
+    color: "#FFFFFF",
+  },
+  hrIcon: {
+    height: 38,
+    width: 38,
+    color: "#FFFFFF",
+  },
+  searchIcon: {
+    color: "#FFFFFF",
+    height: 38,
+    width: 38,
+  },
+  text2: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#FFFFFF",
+    top: 5,
+  },
+  hrButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    left: 50,
+    position: "absolute",
+    bottom: 40,
+    width: 54,
+  },
+  mapButton: {
+    alignItems: "center",
+    alignSelf: "center",
+    position: "absolute",
+    bottom: 40,
+  },
+  searchButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    right: 50,
+    position: "absolute",
+    bottom: 40,
+    width: 54,
+  },
+  eventText: {
+    top: 10,
+    left: 20
+  },
 });
