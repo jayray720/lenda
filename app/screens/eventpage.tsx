@@ -152,8 +152,8 @@ export default function SignUpScreen() {
       borderWidth:6,
       borderRadius:12,
       borderColor:'#88DAFD',
-      width:300,
-      height:420,
+      width:320,
+      height:500,
       top:230,
       backgroundColor:'#88DAFD',
       justifyContent: 'center',
@@ -240,7 +240,9 @@ export default function SignUpScreen() {
   },
   eventText: {
     top: 10,
-    left: 20
+    left: 20,
+    fontSize: 20,
+    color: "#287090"
   },
   text2: {
     fontSize: 16,

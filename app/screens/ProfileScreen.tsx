@@ -152,11 +152,11 @@ const styles = StyleSheet.create({
   SchoolName: {
     position:'absolute',
     fontSize: 25,
-    //fontWeight: "bold",
+    fontWeight: "400",
     top: 250,
     left: 112,
     height: 76,
-    width: 270,
+    width: 270
   },
   text: {
     fontSize: 16,
@@ -174,10 +174,10 @@ const styles = StyleSheet.create({
   },
   Pic: {
     position: "absolute",
-    // bottom: 1,
+    top: 215,
     left: 20,
-    width: 59,
-    height: 59,
+    width: 75,
+    height: 75,
   },
   AboutDesc: {
     alignItems: "center",

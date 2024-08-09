@@ -70,6 +70,7 @@ export default function OrgPost() {
             // source={require("../../assets/images/beach.png")}
             source={require("../../assets/images/image 21 (1).png")}
           /> 
+            <Text style={styles.eventHeader}>Details:</Text>
             <Text style={styles.eventText}>
             Max Hours: 3
             </Text>
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     borderRadius:12,
     borderColor:'#88DAFD',
     width:300,
-    height:420,
+    height:510,
     top:158,
     backgroundColor:'#88DAFD',
     justifyContent: 'center',
@@ -307,6 +308,14 @@ const styles = StyleSheet.create({
   },
   eventText: {
     top: 10,
-    left: 20
+    left: 20,
+    fontSize: 20,
+    color: "#287090"
+  },
+  eventHeader: {
+     left: 20,
+     top: 5,
+     fontSize: 22,
+     fontWeight: "500",
   },
 });
